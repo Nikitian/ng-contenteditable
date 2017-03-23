@@ -62,7 +62,7 @@
         return;
 
         function getModelKey() {
-          if (typeof attrs.ngModel  === undefined) {
+          if (typeof attrs.ngModel  === 'undefined') {
             return null;
           }
 
