@@ -39,9 +39,9 @@
           html = element.html();
           if (!opts.rawContent) {
             html = parseHtml(html);
-            ngModel.$setViewValue(html);
           }
 
+          ngModel.$setViewValue(html);
           validate(html);
         };
 
