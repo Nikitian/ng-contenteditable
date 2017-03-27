@@ -24,7 +24,7 @@
 
         // options
         var opts = {};
-        angular.forEach(['onlyText', 'convertNewLines'], function (opt) {
+        angular.forEach(['onlyText', 'convertNewLines', 'rawContent'], function (opt) {
           var o = attrs[opt];
           opts[opt] = o && o !== 'false';
         });
@@ -37,8 +37,11 @@
         read = function () {
           var html;
           html = element.html();
-          html = parseHtml(html);
-          ngModel.$setViewValue(html);
+          if (!opts.rawContent) {
+            html = parseHtml(html);
+            ngModel.$setViewValue(html);
+          }
+
           validate(html);
         };
 
