@@ -67,6 +67,17 @@
           scope.$apply(read);
         });
 
+        element.bind('keydown', function (e) {
+
+          // trap the return key being pressed
+          if (e.keyCode === 13) {
+            document.execCommand('insertHTML', false, "\n");
+
+            // prevent the default behaviour of return key pressed
+            return false;
+          }
+        });
+
         return;
 
         function getModelKey() {
